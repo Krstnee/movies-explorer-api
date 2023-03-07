@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
@@ -23,6 +24,7 @@ async function main() {
 
 main();
 
+app.use(cors());
 app.use(helmet());
 app.use(requestLogger);
 app.use(limiter);
